@@ -11,6 +11,21 @@ app.get("/json", (req, res) => {
   res.json({ name: "ayo" });
 });
 
+app.get("/user/:id", (req, res) => {
+  const userId = req.params.id;
+  const queryName = req.query.name;
+  res.send(`User ID: ${userId}, Query Name: ${queryName}`);
+});
+
+const books = [
+  { id: 1, title: "Book A" },
+  { id: 2, title: "Book B" },
+];
+
+app.get("/api/books", (req, res) => {
+  res.json(books);
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
